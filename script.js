@@ -34,3 +34,15 @@ function operate(op, num1, num2) {
             break;
     }
 }
+
+let displayValue;
+
+let numButtons = document.querySelectorAll(".num");
+let screen = document.querySelector("#screen-content");
+
+numButtons.forEach(element => {
+    element.addEventListener("click", () => {
+        //console.log(element.textContent);
+        screen.textContent += element.textContent;
+    })
+});
