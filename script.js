@@ -44,6 +44,7 @@ let numButtons = document.querySelectorAll(".num");
 let screen = document.querySelector("#screen-content");
 let clear = document.querySelector("#clear");
 let equals = document.querySelector("#equals");
+let back = document.querySelector("#back");
 
 clear.addEventListener("click", () => {
     screen.textContent = "0";
@@ -62,10 +63,15 @@ numButtons.forEach(element => {
     })
 });
 
+back.addEventListener("click", () => {
+    arr.pop();
+    screen.textContent = screen.textContent.slice(0, -1);
+});
+
 equals.addEventListener("click", () => {
     while (arr.length >= 3) {
         result = arr.splice(0, 3);
-        result = operate(parseInt(result[0]), result[1], parseInt(result[2]));
+        result = operate(parseFloat(result[0]), result[1], parseFloat(result[2]));
         arr.unshift(result);
     }
 
@@ -73,8 +79,9 @@ equals.addEventListener("click", () => {
         alert("Don't divide by zero!");
         result = "";
     }
-    if (isFloatOrInteger(result)) screen.textContent = result.toFixed(2);
-    screen.textContent = result;
+    else if (isFloatOrInteger(result)) screen.textContent = result.toFixed(2);
+
+    else screen.textContent = result;
     
 });
 
@@ -82,3 +89,9 @@ function isFloatOrInteger(number) {
     return Math.abs(number - Math.round(number)) > Number.EPSILON;
   }
 
+const button1 = document.getElementById('button1');
+const computedStyles = window.getComputedStyle(button1);
+ 
+const button2 = document.getElementById('button2');
+button2.style.width = computedStyles.width;
+button2.style.height = computedStyles.height;

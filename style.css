@@ -4,6 +4,7 @@ body, html {
     display: flex;
     align-items: center;
     justify-content: center;
+    color: #f2f2f2;
 }
 
 #main {
@@ -11,7 +12,9 @@ body, html {
     flex-direction: column;
     height: 80vh;
     width: 50vh;
-    border: 2px solid black;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    background-color: #000000;
 }
 
 #screen {
@@ -38,4 +41,31 @@ body, html {
 #buttons button {
     flex: 0 0 calc(25%);
     height: 25%;
+}
+
+#buttons2 {
+    display: flex;
+    
+}
+
+#buttons2 button {
+    flex: 1;
+}
+
+button {
+    font-size: 40px;
+    color: #f2f2f2;
+    border: solid 1px black;
+    
+}
+
+.num, 
+#equals,
+#clear,
+#back {
+    background-color: #333333;
+}
+
+.op {
+    background-color: #ff9f0a;
 }
